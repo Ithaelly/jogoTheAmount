@@ -159,7 +159,7 @@ function telaColaboradores(){
   text("Função: Programadora", 350, 220);
   textSize(24);
   textFont(fontNormal);
-  text("Estudante do curso de Ciências e Tecnologia na Universidade Federal do Rio grande do Norte.", 350, 270, 770);
+  text("Estudante do curso de Ciências e Tecnologia na Universidade Federal do Rio grande do Norte - UFRN.", 350, 270, 770);
   
   //INFORMAÇÕES DO ORIENTADOR
   //SUBTÍTULO
@@ -173,7 +173,7 @@ function telaColaboradores(){
   text("Função: Educadora", 350, 550);
   textSize(24);
   textFont(fontNormal);
-  text("Pedagoga.", 350, 600, 770);
+  text("Formada em Pedagogia na Universidade Vale do Acarau - UVA IBRAPES.", 350, 600, 770);
   
   //VOLTÃO DE VOLTAR
   menuBotao("Voltar", yMinBotao0, yMaxBotao0, 0);
