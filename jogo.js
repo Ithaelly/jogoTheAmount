@@ -35,20 +35,20 @@ function setup() {//configurar
 
 function preload(){//carregar antes de tudo
   //CARREGANDO IMAGENS DE FUNDO
-  fundoTelaDesenvolvedores = loadImage('/imagens/fundoTelaDesenvolvedores.png');
-  fundoTelaInformacoes = loadImage('/imagens/fundoTelaInformacoes.png');
-  fundoTelaMenu = loadImage('/imagens/fundoTelaMenu.png');
-  fundoTelaJogo = loadImage('/imagens/fundoTelaJogo.png');
-  imagemRascunhoJogo = loadImage('/imagens/rascunhoJogo.png');
+  fundoTelaDesenvolvedores = loadImage('imagens/fundoTelaDesenvolvedores.png');
+  fundoTelaInformacoes = loadImage('imagens/fundoTelaInformacoes.png');
+  fundoTelaMenu = loadImage('imagens/fundoTelaMenu.png');
+  fundoTelaJogo = loadImage('imagens/fundoTelaJogo.png');
+  imagemRascunhoJogo = loadImage('imagens/rascunhoJogo.png');
   
   //CARREGANDO FOTOS PARA TELA DE COLABORADORES
-  imagemProgramador = loadImage('/imagens/imagemProgramador.jpg');
-  imagemEducador = loadImage('/imagens/imagemEducador.png');
+  imagemProgramador = loadImage('imagens/imagemProgramador.jpg');
+  imagemEducador = loadImage('imagens/imagemEducador.png');
   
   //CARREGANDO FONTES
-  fontTitulo = loadFont('/fontes/AGENTORANGE.TTF');
-  fontSubTitulo = loadFont('/fontes/Minigame.otf');
-  fontNormal = loadFont('/fontes/Eastman-Grotesque-Regular-trial.otf');
+  fontTitulo = loadFont('fontes/AGENTORANGE.TTF');
+  fontSubTitulo = loadFont('fontes/Minigame.otf');
+  fontNormal = loadFont('fontes/Eastman-Grotesque-Regular-trial.otf');
 }
 
 function draw() {//código em si
