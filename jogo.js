@@ -1,4 +1,4 @@
-var fundoTelaDesenvolvedores;
+﻿var fundoTelaDesenvolvedores;
 var fundoTelaInformacoes;
 var fundoTelaMenu;
 var fundoTelaJogo;
@@ -28,9 +28,17 @@ var yMinBotao0 = 650;
 var yMaxBotao0 = yMinBotao0 + alturaBotao;
 
 var tela = 0;
+var pont = 0;
+var imagens = [];
 
 function setup() {//configurar
   createCanvas(1280, 720);
+  n= parseInt(random(0,3));
+  indice = parseInt(random(0,4));
+  j = parseInt(random(0,4));
+  k = parseInt(random(0,4));
+  l = parseInt(random(0,4));
+  m = parseInt(random(0,4));
 }
 
 function preload(){//carregar antes de tudo
@@ -49,6 +57,12 @@ function preload(){//carregar antes de tudo
   fontTitulo = loadFont('fontes/AGENTORANGE.TTF');
   fontSubTitulo = loadFont('fontes/Minigame.otf');
   fontNormal = loadFont('fontes/Eastman-Grotesque-Regular-trial.otf');
+
+  
+  //CARREGANDO AS IMAGENS QUE SÃO ALEATÓRIAS
+  for (i = 0; i < 10; i++) {
+    imagens[i] = loadImage(i + '.png');
+  }
 }
 
 function draw() {//código em si
@@ -180,13 +194,40 @@ function telaColaboradores(){
 }
 
 function telaJogo(){
+  //if(pont==0){
+     fase1();
+  /*}
+  else if(pont==3){
+      fase2();    
+  }
+  else if(pont==5){
+      fase3();   
+  }
+  else{
+    venceu();
+  }*/
+}
+
+function fase1(){
   image(fundoTelaJogo,0, 0);
-  image(imagemRascunhoJogo, 0, 147);
+  //image(imagemRascunhoJogo, 0, 147);
   
   //TÍTULO
   textSize(40);
   textFont(fontTitulo);
   text("Jogo", 500, 100);
+  
+  //SUBTÍTULO
+  textSize(35);
+  textFont(fontSubTitulo); 
+  text("Qual figura possui "+n+" flores juntas?", 350, 170);
+  
+  //IMAGENS SORTEADAS
+  image(imagens[indice], 95, 185, 180, 220);//cima esquerda
+  image(imagens[j], 520, 185, 180, 220);//cima meio
+  image(imagens[k], 950, 185, 180, 220);//cima direita
+  image(imagens[l], 320, 430, 180, 220);//baixo esquerda
+  image(imagens[m], 750, 430, 180, 220);//baixo direita
   
   //VOLTÃO DE VOLTAR
   menuBotao("Voltar", yMinBotao0, yMaxBotao0, 0);
