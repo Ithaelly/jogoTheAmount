@@ -13,6 +13,7 @@ var fontNormal;
 
 var tela = 0;
 var pont = 0;
+var escolha = 0;
 var imagens = [];
 
 //VARIAVEIS DO MENU BOTAO
@@ -115,6 +116,9 @@ function draw() {//código em si
   if(tela == 3){
     telaColaboradores();
   }
+  if(tela == 4){
+    telaGameOver();
+  }
 }
 
 function telaMenu(){
@@ -159,10 +163,8 @@ function menuBotao2(texto, xMin, xMax, yMin, yMax, opcao){
   //CAIXA DE SELEÇÃO DOS BOTÕES
   if((mouseX > xMin && mouseX < xMax) && (mouseY > yMin && mouseY < yMax)){//quando a pessoa passar o mouse por cima do espaço do botão
      fill(250);//pro espaço do botao ficar branco quand o mouse passa por cima
-     if(mouseIsPressed){//se precionar o botão
+       escolha=opcao;
        console.log(opcao);
-        //tela = opcao;//chama a tela de acordo com a opção que foi passada, no caso, o número da tela
-     }
   }
   else{
     noFill();//tira o preenchimento branco qnd o mouse não ta em cima do botão
@@ -246,18 +248,41 @@ function telaColaboradores(){
 }
 
 function telaJogo(){
-  //if(pont==0){
+  if(pont==0){
      fase1();
-  /*}
+  }
   else if(pont==3){
       fase2();    
   }
   else if(pont==5){
       fase3();   
   }
-  else{
-    venceu();
+  else if(pont==6){
+     telaGameOver();   
+  }
+  /*else{
+     venceu();
   }*/
+}
+
+function mouseClicked(){
+  if(tela==1 && pont==0){
+    //TESTANDO A IMAGEM CLICADA SE É IGUAL AO VALOR DE N
+     if(escolha===n){
+       pont++;
+       console.log("valor de escolha: "+escolha+" e de n: "+n);
+       console.log("Acertou");  
+       console.log("pont: "+pont);
+       
+       //VALOR DA PONTUAÇÃO
+       noFill();
+       rect (970, 70, 200, 45, 15);//metodo que cria o retangulo
+       fill(0);
+       textSize(35);
+       textFont(fontSubTitulo); 
+       text("Pontos:  "+pont, 985, 100);    
+     }
+  }
 }
 
 function fase1(){
@@ -292,4 +317,29 @@ function fase1(){
   
   //VOLTÃO DE VOLTAR
   menuBotao("Voltar", xMinBotao0, xMaxBotao0, yMinBotao0, yMaxBotao0, 0);//chama a função do botão
+}
+
+function fase2(){
+  image(fundoTelaJogo,0, 0);
+  //image(imagemRascunhoJogo, 0, 147);
+  
+  //TÍTULO
+  textSize(40);
+  textFont(fontTitulo);
+  text("Jogo", 500, 100);
+}
+
+function telaGameOver(){
+  image(fundoTelaInformacoes,0, 0);
+  //image(imagemRascunhoJogo, 0, 147);
+  
+  //TÍTULO
+  textSize(70);
+  textFont(fontTitulo);
+  text("Game Over!", 430, 330);
+  
+  //SUBTÍTULO
+  textSize(35);
+  textFont(fontSubTitulo); 
+  text("Sinto muito, mas você perdeu!", 510, 380);
 }
