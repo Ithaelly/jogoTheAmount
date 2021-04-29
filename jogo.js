@@ -11,6 +11,11 @@ var fontTitulo;
 var fontSubTitulo;
 var fontNormal;
 
+var tela = 0;
+var pont = 0;
+var imagens = [];
+
+//VARIAVEIS DO MENU BOTAO
 var xMinBotao = 870;
 var larguraBotao = 300;
 var xMaxBotao = xMinBotao + larguraBotao;
@@ -27,9 +32,34 @@ var yMaxBotao3 = yMinBotao3 + alturaBotao;
 var yMinBotao0 = 650;
 var yMaxBotao0 = yMinBotao0 + alturaBotao;
 
-var tela = 0;
-var pont = 0;
-var imagens = [];
+//VARIAVEIS DO MENU BOTAO2
+var larguraBotao2 = 180;
+var alturaBotao2 = 225;
+
+var xMinBotao4 = 95;
+var xMaxBotao4 = xMinBotao4 + larguraBotao;
+var yMinBotao4 = 185;
+var yMaxBotao4 = yMinBotao4 + alturaBotao;
+
+var xMinBotao5 = 530;
+var xMaxBotao5 = xMinBotao5 + larguraBotao;
+var yMinBotao5 = 185;
+var yMaxBotao5 = yMinBotao5 + alturaBotao;
+
+var xMinBotao6 = 950;
+var xMaxBotao6 = xMinBotao6 + larguraBotao;
+var yMinBotao6 = 185;
+var yMaxBotao6 = yMinBotao6 + alturaBotao;
+
+var xMinBotao7 = 318;
+var xMaxBotao7 = xMinBotao7 + larguraBotao;
+var yMinBotao7 = 430;
+var yMaxBotao7 = yMinBotao7 + alturaBotao;
+
+var xMinBotao8 = 750;
+var xMaxBotao8 = xMinBotao8 + larguraBotao;
+var yMinBotao8 = 430;
+var yMaxBotao8 = yMinBotao8 + alturaBotao;
 
 function setup() {//configurar
   createCanvas(1280, 720);
@@ -116,6 +146,21 @@ function menuBotao(texto, yMin, yMax, opcao){
   fill(0);//cor de preenchimento das opcoes, ou seja, deixa preto os nomes "jogo" "instrucoes" "colaboradores"
   textFont(fontSubTitulo);//fonte do subtitulo
   text(texto, xMinBotao + 35, yMin + 40);//mostra o texto do botão
+}
+
+function menuBotao2(texto, xMin, xMax, yMin, yMax, opcao){
+  //CAIXA DE SELEÇÃO DOS BOTÕES
+  if((mouseX > xMin && mouseX < xMax) && (mouseY > yMin && mouseY < yMax)){//quando a pessoa passar o mouse por cima do espaço do botão
+     fill(250);//pro espaço do botao ficar branco quand o mouse passa por cima
+     if(mouseIsPressed){//se precionar o botão
+       console.log(opcao);
+        //tela = opcao;//chama a tela de acordo com a opção que foi passada, no caso, o número da tela
+     }
+  }
+  else{
+    noFill();//tira o preenchimento branco qnd o mouse não ta em cima do botão
+  }
+  rect (xMin, yMin, larguraBotao2, alturaBotao2, 0);//metodo que cria o retangulo que vai servir como as bordas do botoes
 }
 
 function telaInformacoes(){
@@ -228,6 +273,15 @@ function fase1(){
   image(imagens[k], 950, 185, 180, 220);//cima direita
   image(imagens[l], 320, 430, 180, 220);//baixo esquerda
   image(imagens[m], 750, 430, 180, 220);//baixo direita
+
+//CRIANDO UMA CAIXA/BOTAO NO LUGAR DAS IMAGENS SORTEADAS
+  menuBotao2("imagem indice", xMinBotao4, xMaxBotao4, yMinBotao4, yMaxBotao4, indice);//chama a função do botão
+  menuBotao2("imagem j",xMinBotao5, xMaxBotao5, yMinBotao5, yMaxBotao5, j); 
+  menuBotao2("imagem k",xMinBotao6, xMaxBotao6, yMinBotao6, yMaxBotao6, k);
+  menuBotao2("imagem l", xMinBotao7, xMaxBotao7, yMinBotao7, yMaxBotao7, l);
+  menuBotao2("imagem m",xMinBotao8, xMaxBotao8, yMinBotao8, yMaxBotao8, m);
+  
+  //TESTANDO A IMAGEM CLICADA SE É IGUAL AO VALOR DE N
   
   //VOLTÃO DE VOLTAR
   menuBotao("Voltar", yMinBotao0, yMaxBotao0, 0);
