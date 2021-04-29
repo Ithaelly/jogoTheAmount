@@ -44,29 +44,29 @@ var larguraBotao2 = 180;
 var alturaBotao2 = 225;
 
 var xMinBotao4 = 95;
-var xMaxBotao4 = xMinBotao4 + larguraBotao;
+var xMaxBotao4 = xMinBotao4 + larguraBotao2;
 var yMinBotao4 = 185;
-var yMaxBotao4 = yMinBotao4 + alturaBotao;
+var yMaxBotao4 = yMinBotao4 + alturaBotao2;
 
 var xMinBotao5 = 530;
-var xMaxBotao5 = xMinBotao5 + larguraBotao;
+var xMaxBotao5 = xMinBotao5 + larguraBotao2;
 var yMinBotao5 = 185;
-var yMaxBotao5 = yMinBotao5 + alturaBotao;
+var yMaxBotao5 = yMinBotao5 + alturaBotao2;
 
 var xMinBotao6 = 950;
-var xMaxBotao6 = xMinBotao6 + larguraBotao;
+var xMaxBotao6 = xMinBotao6 + larguraBotao2;
 var yMinBotao6 = 185;
-var yMaxBotao6 = yMinBotao6 + alturaBotao;
+var yMaxBotao6 = yMinBotao6 + alturaBotao2;
 
 var xMinBotao7 = 318;
-var xMaxBotao7 = xMinBotao7 + larguraBotao;
+var xMaxBotao7 = xMinBotao7 + larguraBotao2;
 var yMinBotao7 = 430;
-var yMaxBotao7 = yMinBotao7 + alturaBotao;
+var yMaxBotao7 = yMinBotao7 + alturaBotao2;
 
 var xMinBotao8 = 750;
-var xMaxBotao8 = xMinBotao8 + larguraBotao;
+var xMaxBotao8 = xMinBotao8 + larguraBotao2;
 var yMinBotao8 = 430;
-var yMaxBotao8 = yMinBotao8 + alturaBotao;
+var yMaxBotao8 = yMinBotao8 + alturaBotao2;
 
 function setup() {//configurar
   createCanvas(1280, 720);
@@ -132,9 +132,9 @@ function telaMenu(){
   text("Associando os números as quantidades", 160, 255);
   
   //BOTÕES
-  menuBotao("Jogo", yMinBotao1, yMaxBotao1, 1);//chama a função do botão
-  menuBotao("Informações", yMinBotao2, yMaxBotao2, 2);
-  menuBotao("Colaboradores", yMinBotao3, yMaxBotao3, 3);
+  menuBotao("Jogo", xMinBotao1, xMaxBotao1, yMinBotao1, yMaxBotao1, 1);//chama a função do botão
+  menuBotao("Informações", xMinBotao2, xMaxBotao2, yMinBotao2, yMaxBotao2, 2);
+  menuBotao("Colaboradores", xMinBotao3, xMaxBotao3, yMinBotao3, yMaxBotao3, 3);
 }
 
 function menuBotao(texto, xMin, xMax, yMin, yMax, opcao){
@@ -283,10 +283,10 @@ function fase1(){
 
 //CRIANDO UMA CAIXA/BOTAO NO LUGAR DAS IMAGENS SORTEADAS
   menuBotao2("imagem indice", xMinBotao4, xMaxBotao4, yMinBotao4, yMaxBotao4, indice);//chama a função do botão
-  menuBotao2("imagem j",xMinBotao5, xMaxBotao5, yMinBotao5, yMaxBotao5, j); 
-  menuBotao2("imagem k",xMinBotao6, xMaxBotao6, yMinBotao6, yMaxBotao6, k);
+  menuBotao2("imagem j", xMinBotao5, xMaxBotao5, yMinBotao5, yMaxBotao5, j); 
+  menuBotao2("imagem k", xMinBotao6, xMaxBotao6, yMinBotao6, yMaxBotao6, k);
   menuBotao2("imagem l", xMinBotao7, xMaxBotao7, yMinBotao7, yMaxBotao7, l);
-  menuBotao2("imagem m",xMinBotao8, xMaxBotao8, yMinBotao8, yMaxBotao8, m);
+  menuBotao2("imagem m", xMinBotao8, xMaxBotao8, yMinBotao8, yMaxBotao8, m);
   
   //TESTANDO A IMAGEM CLICADA SE É IGUAL AO VALOR DE N
   
