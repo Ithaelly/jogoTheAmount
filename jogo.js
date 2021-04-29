@@ -41,7 +41,7 @@ var yMaxBotao0 = yMinBotao0 + alturaBotao;
 
 //VARIAVEIS DO MENU BOTAO2
 var larguraBotao2 = 180;
-var alturaBotao2 = 225;
+var alturaBotao2 = 220;
 
 var xMinBotao4 = 95;
 var xMaxBotao4 = xMinBotao4 + larguraBotao2;
@@ -276,7 +276,7 @@ function fase1(){
   
   //IMAGENS SORTEADAS
   image(imagens[indice], 95, 185, 180, 220);//cima esquerda
-  image(imagens[j], 520, 185, 180, 220);//cima meio
+  image(imagens[j], 530, 185, 180, 220);//cima meio
   image(imagens[k], 950, 185, 180, 220);//cima direita
   image(imagens[l], 320, 430, 180, 220);//baixo esquerda
   image(imagens[m], 750, 430, 180, 220);//baixo direita
