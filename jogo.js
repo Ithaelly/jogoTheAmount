@@ -16,19 +16,26 @@ var pont = 0;
 var imagens = [];
 
 //VARIAVEIS DO MENU BOTAO
-var xMinBotao = 870;
 var larguraBotao = 300;
-var xMaxBotao = xMinBotao + larguraBotao;
-var yMinBotao1 = 270;
 var alturaBotao = 60;
+
+var xMinBotao1 = 870;
+var xMaxBotao1 = xMinBotao1 + larguraBotao;
+var yMinBotao1 = 270;
 var yMaxBotao1 = yMinBotao1 + alturaBotao;
 
+var xMinBotao2 = 870;
+var xMaxBotao2 = xMinBotao2 + larguraBotao;
 var yMinBotao2 = 420;
 var yMaxBotao2 = yMinBotao2 + alturaBotao;
 
+var xMinBotao3 = 870;
+var xMaxBotao3 = xMinBotao3 + larguraBotao;
 var yMinBotao3 = 570;
 var yMaxBotao3 = yMinBotao3 + alturaBotao;
 
+var xMinBotao0 = 950;
+var xMaxBotao0 = xMinBotao0 + larguraBotao;
 var yMinBotao0 = 650;
 var yMaxBotao0 = yMinBotao0 + alturaBotao;
 
@@ -130,9 +137,9 @@ function telaMenu(){
   menuBotao("Colaboradores", yMinBotao3, yMaxBotao3, 3);
 }
 
-function menuBotao(texto, yMin, yMax, opcao){
+function menuBotao(texto, xMin, xMax, yMin, yMax, opcao){
   //CAIXA DE SELEÇÃO DOS BOTÕES
-  if((mouseX > xMinBotao && mouseX < xMaxBotao) && (mouseY > yMin && mouseY < yMax)){//quando a pessoa passar o mouse por cima do espaço do botão
+  if((mouseX > xMin && mouseX < xMax) && (mouseY > yMin && mouseY < yMax)){//quando a pessoa passar o mouse por cima do espaço do botão
      fill(250);//pro espaço do botao ficar branco quand o mouse passa por cima
      if(mouseIsPressed){//se precionar o botão
         tela = opcao;//chama a tela de acordo com a opção que foi passada, no caso, o número da tela
@@ -141,11 +148,11 @@ function menuBotao(texto, yMin, yMax, opcao){
   else{
     noFill();//tira o preenchimento branco qnd o mouse não ta em cima do botão
   }
-  rect (xMinBotao, yMin, larguraBotao, alturaBotao, 15);//metodo que cria o retangulo que vai servir como as bordas do botoes
+  rect (xMin, yMin, larguraBotao, alturaBotao, 15);//metodo que cria o retangulo que vai servir como as bordas do botoes
   textSize(35);
   fill(0);//cor de preenchimento das opcoes, ou seja, deixa preto os nomes "jogo" "instrucoes" "colaboradores"
   textFont(fontSubTitulo);//fonte do subtitulo
-  text(texto, xMinBotao + 35, yMin + 40);//mostra o texto do botão
+  text(texto, xMin + 35, yMin + 40);//mostra o texto do botão
 }
 
 function menuBotao2(texto, xMin, xMax, yMin, yMax, opcao){
@@ -192,7 +199,7 @@ function telaInformacoes(){
   text("Veja o número e clique na imagem que represente ele.", 400, 530, 770);
   
   //VOLTÃO DE VOLTAR
-  menuBotao("Voltar", yMinBotao0, yMaxBotao0, 0);//chama a função do botão
+  menuBotao("Voltar", xMinBotao0, xMaxBotao0, yMinBotao0, yMaxBotao0, 0);//chama a função do botão
 }
 
 function telaColaboradores(){
@@ -235,7 +242,7 @@ function telaColaboradores(){
   text("Formada em Pedagogia na Universidade Vale do Acarau - UVA IBRAPES.", 350, 600, 770);
   
   //VOLTÃO DE VOLTAR
-  menuBotao("Voltar", yMinBotao0, yMaxBotao0, 0);
+  menuBotao("Voltar", xMinBotao0, xMaxBotao0, yMinBotao0, yMaxBotao0, 0);//chama a função do botão
 }
 
 function telaJogo(){
@@ -284,5 +291,5 @@ function fase1(){
   //TESTANDO A IMAGEM CLICADA SE É IGUAL AO VALOR DE N
   
   //VOLTÃO DE VOLTAR
-  menuBotao("Voltar", yMinBotao0, yMaxBotao0, 0);
+  menuBotao("Voltar", xMinBotao0, xMaxBotao0, yMinBotao0, yMaxBotao0, 0);//chama a função do botão
 }
