@@ -12,6 +12,7 @@ var fontSubTitulo;
 var fontNormal;
 
 var tela = 0;
+var aux = 0;
 var pont = 0;
 var errou = 0;
 var escolha = 0;
@@ -72,12 +73,24 @@ var yMaxBotao8 = yMinBotao8 + alturaBotao2;
 
 function setup() {//configurar
   createCanvas(1280, 720);
+  
+  //SORTEIO DA PRIMEIRA FASE
   n= parseInt(random(0,3));
+  aux=n;
   indice = parseInt(random(0,5));
   j = parseInt(random(0,5));
   k = parseInt(random(0,5));
   l = parseInt(random(0,5));
   m = parseInt(random(0,5));
+  
+  //SORTEIO DA SEGUNDA FASE
+  o= parseInt(random(4,6));
+  aux2=o;
+  indice2 = parseInt(random(3,8));
+  jj = parseInt(random(3,8));
+  kk = parseInt(random(3,8));
+  ll = parseInt(random(3,8));
+  mm = parseInt(random(3,8));
 }
 
 function preload(){//carregar antes de tudo
@@ -249,6 +262,8 @@ function telaColaboradores(){
 }
 
 function telaJogo(){
+  x=0; y=5; w=0; z=3;//variaveis do sorteio 1
+  xx=3; yy=8; ww=4; zz=6;//variaveis do sorteio 2
   if(pont==0){
      fase1();
   }
@@ -286,11 +301,41 @@ function mouseClicked(){
        console.log("Errou");      
     }
   }
+  if(tela==1 && pont==1){
+    // w=4, z=6, x=3, y=7;
+    console.log("aux: "+aux2+"  e n: "+o);
+      while(aux2==o){
+         o = parseInt(random(ww,zz)); 
+        console.log("entro no while");
+      }
+    //TESTANDO A IMAGEM CLICADA SE É IGUAL AO VALOR DE N
+     if(escolha===o){
+       pont++;
+       console.log("valor de escolha: "+escolha+" e de o: "+o);
+       console.log("Acertou");  
+       console.log("pont: "+pont);
+       
+       //VALOR DA PONTUAÇÃO
+       noFill();
+       rect (970, 70, 200, 45, 15);//metodo que cria o retangulo
+       fill(0);
+       textSize(35);
+       textFont(fontSubTitulo); 
+       text("Pontos:  "+pont, 985, 100);    
+     }
+     else if(escolha!==o){
+       errou++;
+       console.log("valor de escolha: "+escolha+" e de o: "+o);
+       console.log("Errou");      
+    }
+    if(tela==1 && pont==2){
+      telaMenu();
+    }
+  }
 }
 
 function fase1(){
   image(fundoTelaJogo,0, 0);
-  //image(imagemRascunhoJogo, 0, 147);
   
   //TÍTULO
   textSize(40);
@@ -304,21 +349,22 @@ function fase1(){
 
   //CONDIÇÃO PARA TER CERTEZA QUE TEM A IMAGEM DA RESPOSTA DO N
   while(n==imagens[indice] || n==imagens[j] || n==imagens[k] || n==imagens[l]){
-     n = parseInt(random(0,5)); 
+     n = parseInt(random(w,z)); 
+     aux=n;
   }
   
   //CONDIÇÃO PARA NÃO REPETIR IMAGEM
   while(imagens[j] == imagens[indice]){
-     j = parseInt(random(0,5));
+     j = parseInt(random(x,y));
   }
   while(imagens[k]==imagens[indice] || imagens[k]==imagens[j]){
-     k = parseInt(random(0,5));   
+     k = parseInt(random(x,y));   
   }
   while(imagens[l]==imagens[indice] || imagens[l]==imagens[j] || imagens[l]==imagens[k]){
-     l = parseInt(random(0,5));   
+     l = parseInt(random(x,y));   
   }
   while(imagens[m]==imagens[indice] || imagens[m]==imagens[j] || imagens[m]==imagens[k] || imagens[m]==imagens[l]){
-     m = parseInt(random(0,5));   
+     m = parseInt(random(x,y));   
   }
   
   //IMAGENS SORTEADAS
@@ -343,12 +389,50 @@ function fase1(){
 
 function fase2(){
   image(fundoTelaJogo,0, 0);
-  //image(imagemRascunhoJogo, 0, 147);
   
   //TÍTULO
   textSize(40);
   textFont(fontTitulo);
   text("Jogo", 500, 100);
+
+  //SUBTÍTULO
+  textSize(35);
+  textFont(fontSubTitulo); 
+  text("Qual figura possui "+o+" flores juntas?", 350, 170);
+  console.log("FIGURA");
+  
+  //CONDIÇÃO PARA TER CERTEZA QUE TEM A IMAGEM DA RESPOSTA DO O
+  while(o==imagens[indice2] || o==imagens[jj] || o==imagens[kk] || o==imagens[ll]){
+     o = parseInt(random(ww,zz)); 
+  }
+  
+  //CONDIÇÃO PARA NÃO REPETIR IMAGEM
+  while(imagens[jj] == imagens[indice2]){
+     jj = parseInt(random(xx,yy));
+  }
+  while(imagens[kk]==imagens[indice2] || imagens[kk]==imagens[jj]){
+     kk = parseInt(random(xx,yy));   
+  }
+  while(imagens[ll]==imagens[indice2] || imagens[ll]==imagens[jj] || imagens[ll]==imagens[kk]){
+     ll = parseInt(random(xx,yy));   
+  }
+  while(imagens[mm]==imagens[indice2] || imagens[mm]==imagens[jj] || imagens[mm]==imagens[kk] || imagens[mm]==imagens[ll]){
+     mm = parseInt(random(xx,yy));   
+  }
+  
+  //IMAGENS SORTEADAS
+  image(imagens[indice2], 95, 185, 180, 220);//cima esquerda
+  image(imagens[jj], 530, 185, 180, 220);//cima meio
+  image(imagens[kk], 950, 185, 180, 220);//cima direita
+  image(imagens[ll], 319, 430, 180, 220);//baixo esquerda
+  image(imagens[mm], 750, 430, 180, 220);//baixo direita
+  
+  //CRIANDO UMA CAIXA/BOTAO NO LUGAR DAS IMAGENS SORTEADAS
+  menuBotao2("imagem indice", xMinBotao4, xMaxBotao4, yMinBotao4, yMaxBotao4, indice2);//chama a função do botão
+  menuBotao2("imagem j",xMinBotao5, xMaxBotao5, yMinBotao5, yMaxBotao5, jj); 
+  menuBotao2("imagem k",xMinBotao6, xMaxBotao6, yMinBotao6, yMaxBotao6, kk);
+  menuBotao2("imagem l", xMinBotao7, xMaxBotao7, yMinBotao7, yMaxBotao7, ll);
+  menuBotao2("imagem m",xMinBotao8, xMaxBotao8, yMinBotao8, yMaxBotao8, mm);
 }
 
 function telaGameOver(){
