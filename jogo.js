@@ -170,6 +170,8 @@ function menuBotao(texto, xMin, xMax, yMin, yMax, opcao){
      fill(250);//pro espaço do botao ficar branco quand o mouse passa por cima
      if(mouseIsPressed){//se precionar o botão
         tela = opcao;//chama a tela de acordo com a opção que foi passada, no caso, o número da tela
+        escolha2=opcao;
+        console.log(escolha2);
      }
   }
   else{
@@ -285,6 +287,9 @@ function telaJogo(){
   }
   else if(pont==3){
      telaVenceu();   
+  }
+  if(escolha2===0){
+     tela = 0;
   }
 }
 
@@ -466,6 +471,9 @@ function fase2(){
   menuBotao2("imagem k",xMinBotao6, xMaxBotao6, yMinBotao6, yMaxBotao6, kk);
   menuBotao2("imagem l", xMinBotao7, xMaxBotao7, yMinBotao7, yMaxBotao7, ll);
   menuBotao2("imagem m",xMinBotao8, xMaxBotao8, yMinBotao8, yMaxBotao8, mm);
+
+  //VOLTÃO DE VOLTAR
+  menuBotao("Voltar", xMinBotao0, xMaxBotao0, yMinBotao0, yMaxBotao0, 0);//chama a função do botão
 }
 
 function fase3(){
@@ -514,6 +522,9 @@ function fase3(){
   menuBotao2("imagem k",xMinBotao6, xMaxBotao6, yMinBotao6, yMaxBotao6, kkk);
   menuBotao2("imagem l", xMinBotao7, xMaxBotao7, yMinBotao7, yMaxBotao7, lll);
   menuBotao2("imagem m",xMinBotao8, xMaxBotao8, yMinBotao8, yMaxBotao8, mmm);
+
+  //VOLTÃO DE VOLTAR
+  menuBotao("Voltar", xMinBotao0, xMaxBotao0, yMinBotao0, yMaxBotao0, 0);//chama a função do botão
 }
 
 function telaGameOver(){
@@ -533,6 +544,9 @@ function telaGameOver(){
   textSize(26);
   textFont(fontSubTitulo); 
   text("Você clicou 10 vezes em imagens erradas.", 390, 379);
+
+  //VOLTÃO DE VOLTAR
+  menuBotao("Voltar", xMinBotao0, xMaxBotao0, yMinBotao0, yMaxBotao0, 0);//chama a função do botão
 }
 
 function telaVenceu(){
@@ -547,4 +561,7 @@ function telaVenceu(){
   textSize(44);
   textFont(fontSubTitulo); 
   text("Parabénsss! Você venceu o jogo!", 350, 400);
+  
+  //VOLTÃO DE VOLTAR
+  menuBotao("Voltar", xMinBotao0, xMaxBotao0, yMinBotao0, yMaxBotao0, 0);//chama a função do botão
 }
