@@ -72,11 +72,11 @@ var yMaxBotao8 = yMinBotao8 + alturaBotao2;
 function setup() {//configurar
   createCanvas(1280, 720);
   n= parseInt(random(0,3));
-  indice = parseInt(random(0,4));
-  j = parseInt(random(0,4));
-  k = parseInt(random(0,4));
-  l = parseInt(random(0,4));
-  m = parseInt(random(0,4));
+  indice = parseInt(random(0,5));
+  j = parseInt(random(0,5));
+  k = parseInt(random(0,5));
+  l = parseInt(random(0,5));
+  m = parseInt(random(0,5));
 }
 
 function preload(){//carregar antes de tudo
@@ -298,6 +298,25 @@ function fase1(){
   textSize(35);
   textFont(fontSubTitulo); 
   text("Qual figura possui "+n+" flores juntas?", 350, 170);
+
+  //CONDIÇÃO PARA TER CERTEZA QUE TEM A IMAGEM DA RESPOSTA DO N
+  while(n==imagens[indice] || n==imagens[j] || n==imagens[k] || n==imagens[l]){
+     n = parseInt(random(0,5)); 
+  }
+  
+  //CONDIÇÃO PARA NÃO REPETIR IMAGEM
+  while(imagens[j] == imagens[indice]){
+     j = parseInt(random(0,5));
+  }
+  while(imagens[k]==imagens[indice] || imagens[k]==imagens[j]){
+     k = parseInt(random(0,5));   
+  }
+  while(imagens[l]==imagens[indice] || imagens[l]==imagens[j] || imagens[l]==imagens[k]){
+     l = parseInt(random(0,5));   
+  }
+  while(imagens[m]==imagens[indice] || imagens[m]==imagens[j] || imagens[m]==imagens[k] || imagens[m]==imagens[l]){
+     m = parseInt(random(0,5));   
+  }
   
   //IMAGENS SORTEADAS
   image(imagens[indice], 95, 185, 180, 220);//cima esquerda
