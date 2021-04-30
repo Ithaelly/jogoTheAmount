@@ -369,6 +369,9 @@ function mouseClicked(){
   }
   if(escolha2===0){
      aux = 0; pont = 0; errou = 0; escolha = 0;//zerando as variáveis
+     x=0; y=5; w=0; z=3;//variaveis do sorteio 1
+     n = parseInt(random(w,z)); 
+     aux=n;
      tela = 0;//voltando pro menu principal   
   }
 }
