@@ -139,7 +139,7 @@ function draw() {//código em si
   if(tela == 3){
     telaColaboradores();
   }
-  if(errou == 11){
+  if(errou == 6){
     telaGameOver();
   }
 }
@@ -223,7 +223,7 @@ function telaInformacoes(){
   //TEXTO NORMAL
   textSize(26);
   textFont(fontNormal);
-  text("Veja o número e clique na imagem que represente ele.", 400, 530, 770);
+  text("Veja o número e clique na imagem que represente ele. Se você clicar cinco vezes em imagens erradas, você perde.", 350, 530, 700);
   
   //VOLTÃO DE VOLTAR
   menuBotao("Voltar", xMinBotao0, xMaxBotao0, yMinBotao0, yMaxBotao0, 0);//chama a função do botão
@@ -287,9 +287,6 @@ function telaJogo(){
   }
   else if(pont==3){
      telaVenceu();   
-  }
-  if(escolha2===0){
-     tela = 0;
   }
 }
 
@@ -369,6 +366,10 @@ function mouseClicked(){
        console.log("valor de escolha: "+escolha+" e de p: "+p);
        console.log("Errou");      
     }
+  }
+  if(escolha2===0){
+     aux = 0; pont = 0; errou = 0; escolha = 0;//zerando as variáveis
+     tela = 0;//voltando pro menu principal   
   }
 }
 
@@ -543,7 +544,7 @@ function telaGameOver(){
   //SUBTÍTULO
   textSize(26);
   textFont(fontSubTitulo); 
-  text("Você clicou 10 vezes em imagens erradas.", 390, 379);
+  text("Você clicou 5 vezes em imagens erradas.", 390, 379);
 
   //VOLTÃO DE VOLTAR
   menuBotao("Voltar", xMinBotao0, xMaxBotao0, yMinBotao0, yMaxBotao0, 0);//chama a função do botão
