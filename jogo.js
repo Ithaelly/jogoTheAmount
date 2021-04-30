@@ -534,3 +534,17 @@ function telaGameOver(){
   textFont(fontSubTitulo); 
   text("Você clicou 10 vezes em imagens erradas.", 390, 379);
 }
+
+function telaVenceu(){
+  image(fundoTelaInformacoes,0, 0);
+  
+  //TÍTULO
+  textSize(72);
+  textFont(fontTitulo);
+  text("Acabouu!", 400, 330);
+  
+  //SUBTÍTULO
+  textSize(44);
+  textFont(fontSubTitulo); 
+  text("Parabénsss! Você venceu o jogo!", 350, 400);
+}
