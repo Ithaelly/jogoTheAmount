@@ -13,6 +13,7 @@ var fontNormal;
 
 var tela = 0;
 var pont = 0;
+var errou = 0;
 var escolha = 0;
 var imagens = [];
 
@@ -116,7 +117,7 @@ function draw() {//código em si
   if(tela == 3){
     telaColaboradores();
   }
-  if(tela == 4){
+  if(errou == 11){
     telaGameOver();
   }
 }
@@ -258,11 +259,8 @@ function telaJogo(){
       fase3();   
   }
   else if(pont==6){
-     telaGameOver();   
+     telaVenceu();   
   }
-  /*else{
-     venceu();
-  }*/
 }
 
 function mouseClicked(){
@@ -282,6 +280,11 @@ function mouseClicked(){
        textFont(fontSubTitulo); 
        text("Pontos:  "+pont, 985, 100);    
      }
+     else if(escolha!==n){
+       errou++;
+       console.log("valor de escolha: "+escolha+" e de n: "+n);
+       console.log("Errou");      
+    }
   }
 }
 
@@ -322,7 +325,7 @@ function fase1(){
   image(imagens[indice], 95, 185, 180, 220);//cima esquerda
   image(imagens[j], 530, 185, 180, 220);//cima meio
   image(imagens[k], 950, 185, 180, 220);//cima direita
-  image(imagens[l], 320, 430, 180, 220);//baixo esquerda
+  image(imagens[l], 319, 430, 180, 220);//baixo esquerda
   image(imagens[m], 750, 430, 180, 220);//baixo direita
 
 //CRIANDO UMA CAIXA/BOTAO NO LUGAR DAS IMAGENS SORTEADAS
@@ -350,15 +353,19 @@ function fase2(){
 
 function telaGameOver(){
   image(fundoTelaInformacoes,0, 0);
-  //image(imagemRascunhoJogo, 0, 147);
   
   //TÍTULO
-  textSize(70);
+  textSize(72);
   textFont(fontTitulo);
-  text("Game Over!", 430, 330);
+  text("Game Over!", 350, 330);
   
   //SUBTÍTULO
   textSize(35);
   textFont(fontSubTitulo); 
-  text("Sinto muito, mas você perdeu!", 510, 380);
+  text("Sinto muito, mas você perdeu!", 510, 420);
+
+  //SUBTÍTULO
+  textSize(26);
+  textFont(fontSubTitulo); 
+  text("Você clicou 10 vezes em imagens erradas.", 390, 379);
 }
