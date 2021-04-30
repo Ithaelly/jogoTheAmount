@@ -91,6 +91,15 @@ function setup() {//configurar
   kk = parseInt(random(3,8));
   ll = parseInt(random(3,8));
   mm = parseInt(random(3,8));
+
+  //SORTEIO DA TERCEIRA FASE
+  p= parseInt(random(7,10));
+  aux3=o;
+  indice3 = parseInt(random(5,10));
+  jjj = parseInt(random(5,10));
+  kkk = parseInt(random(5,10));
+  lll = parseInt(random(5,10));
+  mmm = parseInt(random(5,10));
 }
 
 function preload(){//carregar antes de tudo
@@ -264,6 +273,7 @@ function telaColaboradores(){
 function telaJogo(){
   x=0; y=5; w=0; z=3;//variaveis do sorteio 1
   xx=3; yy=8; ww=4; zz=6;//variaveis do sorteio 2
+  xxx=5; yyy=10; www=7; zzz=10;//variaveis do sorteio 3
   if(pont==0){
      fase1();
   }
@@ -327,8 +337,32 @@ function mouseClicked(){
        console.log("valor de escolha: "+escolha+" e de o: "+o);
        console.log("Errou");      
     }
-    if(tela==1 && pont==2){
-      telaMenu();
+  }
+  if(tela==1 && pont==2){
+    console.log("aux: "+aux3+"  e p: "+p);
+      while(aux3==p){
+         p = parseInt(random(www,zzz)); 
+        console.log("entro no while");
+      }
+    //TESTANDO A IMAGEM CLICADA SE É IGUAL AO VALOR DE N
+     if(escolha===p){
+       pont++;
+       console.log("valor de escolha: "+escolha+" e de p: "+p);
+       console.log("Acertou");  
+       console.log("pont: "+pont);
+       
+       //VALOR DA PONTUAÇÃO
+       noFill();
+       rect (970, 70, 200, 45, 15);//metodo que cria o retangulo
+       fill(0);
+       textSize(35);
+       textFont(fontSubTitulo); 
+       text("Pontos:  "+pont, 985, 100);    
+     }
+     else if(escolha!==p){
+       errou++;
+       console.log("valor de escolha: "+escolha+" e de p: "+p);
+       console.log("Errou");      
     }
   }
 }
@@ -432,6 +466,54 @@ function fase2(){
   menuBotao2("imagem k",xMinBotao6, xMaxBotao6, yMinBotao6, yMaxBotao6, kk);
   menuBotao2("imagem l", xMinBotao7, xMaxBotao7, yMinBotao7, yMaxBotao7, ll);
   menuBotao2("imagem m",xMinBotao8, xMaxBotao8, yMinBotao8, yMaxBotao8, mm);
+}
+
+function fase3(){
+  image(fundoTelaJogo,0, 0);
+  
+  //TÍTULO
+  textSize(40);
+  textFont(fontTitulo);
+  text("Jogo", 500, 100);
+  
+  //SUBTÍTULO
+  textSize(35);
+  textFont(fontSubTitulo); 
+  text("Qual figura possui "+p+" flores juntas?", 350, 170);
+  console.log("FIGURA");
+  
+  //CONDIÇÃO PARA TER CERTEZA QUE TEM A IMAGEM DA RESPOSTA DO O
+  while(p==imagens[indice3] || p==imagens[jjj] || p==imagens[kkk] || p==imagens[lll]){
+     p = parseInt(random(www,zzz)); 
+  }
+  
+  //CONDIÇÃO PARA NÃO REPETIR IMAGEM
+  while(imagens[jjj] == imagens[indice3]){
+     jjj = parseInt(random(xxx,yyy));
+  }
+  while(imagens[kkk]==imagens[indice3] || imagens[kkk]==imagens[jjj]){
+     kkk = parseInt(random(xxx,yyy));   
+  }
+  while(imagens[lll]==imagens[indice3] || imagens[lll]==imagens[jjj] || imagens[lll]==imagens[kkk]){
+     lll = parseInt(random(xxx,yyy));   
+  }
+  while(imagens[mmm]==imagens[indice3] || imagens[mmm]==imagens[jjj] || imagens[mmm]==imagens[kkk] || imagens[mmm]==imagens[lll]){
+     mmm = parseInt(random(xxx,yyy));   
+  }
+  
+  //IMAGENS SORTEADAS
+  image(imagens[indice3], 95, 185, 180, 220);//cima esquerda
+  image(imagens[jjj], 530, 185, 180, 220);//cima meio
+  image(imagens[kkk], 950, 185, 180, 220);//cima direita
+  image(imagens[lll], 319, 430, 180, 220);//baixo esquerda
+  image(imagens[mmm], 750, 430, 180, 220);//baixo direita
+  
+  //CRIANDO UMA CAIXA/BOTAO NO LUGAR DAS IMAGENS SORTEADAS
+  menuBotao2("imagem indice", xMinBotao4, xMaxBotao4, yMinBotao4, yMaxBotao4, indice3);//chama a função do botão
+  menuBotao2("imagem j",xMinBotao5, xMaxBotao5, yMinBotao5, yMaxBotao5, jjj); 
+  menuBotao2("imagem k",xMinBotao6, xMaxBotao6, yMinBotao6, yMaxBotao6, kkk);
+  menuBotao2("imagem l", xMinBotao7, xMaxBotao7, yMinBotao7, yMaxBotao7, lll);
+  menuBotao2("imagem m",xMinBotao8, xMaxBotao8, yMinBotao8, yMaxBotao8, mmm);
 }
 
 function telaGameOver(){
