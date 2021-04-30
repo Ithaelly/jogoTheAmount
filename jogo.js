@@ -267,13 +267,13 @@ function telaJogo(){
   if(pont==0){
      fase1();
   }
-  else if(pont==3){
+  else if(pont==1){
       fase2();    
   }
-  else if(pont==5){
+  else if(pont==2){
       fase3();   
   }
-  else if(pont==6){
+  else if(pont==3){
      telaVenceu();   
   }
 }
