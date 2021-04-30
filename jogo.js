@@ -302,7 +302,6 @@ function mouseClicked(){
     }
   }
   if(tela==1 && pont==1){
-    // w=4, z=6, x=3, y=7;
     console.log("aux: "+aux2+"  e n: "+o);
       while(aux2==o){
          o = parseInt(random(ww,zz)); 
