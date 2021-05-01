@@ -12,6 +12,7 @@ var fontSubTitulo;
 var fontNormal;
 
 var tela = 0;
+var canvas;
 var aux = 0;
 var pont = 0;
 var errou = 0;
@@ -72,7 +73,7 @@ var yMinBotao8 = 430;
 var yMaxBotao8 = yMinBotao8 + alturaBotao2;
 
 function setup() {//configurar
-  createCanvas(1280, 720);
+  canvas = createCanvas(1280, 720);
   
   //SORTEIO DA PRIMEIRA FASE
   n= parseInt(random(0,2));
